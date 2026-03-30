@@ -1,6 +1,6 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# See https://help.github.com/articles/ignoring-files/
 
-# dependencies
+# Dependencies
 /node_modules
 /.pnp
 .pnp.*
@@ -10,32 +10,73 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
-/coverage
-
-# next.js
+# Next.js
 /.next/
 /out/
 
-# production
+# Production / bundles
 /build
+/dist
 
-# misc
-.DS_Store
-*.pem
+# Testing
+/coverage
+.nyc_output
 
-# debug
+# Vercel (tokens y enlaces locales de deploy)
+.vercel
+
+# Entorno — nunca commitear secretos (DATABASE_URL, API keys, etc.)
+.env
+.env.*
+!.env.example
+.envrc
+.direnv/
+
+# Logs & depuración
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
+pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
+# TypeScript (artefactos; next-env.d.ts lo regenera Next al instalar / dev)
 *.tsbuildinfo
 next-env.d.ts
+
+# Turbopack / Turborepo (si los usas)
+.turbo
+
+# ESLint caché
+.eslintcache
+
+# Sistema operativo
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# IDEs (JetBrains; VS Code / Cursor suele commitearse si quieres settings del equipo)
+.idea/
+
+# Editores
+*.swp
+*.swo
+*~
+
+# Claves / certificados locales
+*.pem
+*.key
+
+# Bases de datos locales de prueba (el proyecto usa Postgres en la nube)
+*.db
+*.sqlite
+*.sqlite3
+
+# Prisma: se commitea prisma/schema.prisma y prisma/migrations/ — no los ignores.
+
+# Playwright / E2E (por si los añades luego)
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
